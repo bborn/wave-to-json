@@ -10,7 +10,7 @@ class WaveToJson
     @filename = source
     @output_path = destination
     @pixel_per_second = options.fetch(:pixel_per_second, DEFAULT_PIXEL_PER_SECOND)
-    @audio = Audio.new(@filename)
+    @audio = WaveToJson::Audio.new(@filename)
   end
 
   def raw_values
