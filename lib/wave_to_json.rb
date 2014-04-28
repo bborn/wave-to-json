@@ -1,4 +1,4 @@
-require 'oj'
+# require 'oj'
 require 'wave_to_json/version'
 require 'shell_command'
 require 'audio'
@@ -6,7 +6,7 @@ require 'audio'
 class WaveToJson
   DEFAULT_PIXEL_PER_SECOND = 1000 / 30.0
 
-  def initialize(source, destination, options = {})
+  def initialize(source, destination=nil, options = {})
     @filename = source
     @output_path = destination
     @pixel_per_second = options.fetch(:pixel_per_second, DEFAULT_PIXEL_PER_SECOND)
@@ -67,10 +67,9 @@ class WaveToJson
   end
 
   def generate
-    File.open(@output_path, 'w') do |file|
-      values = raw_values
-      converted_values = calculate_ratios(*values)
-      file.write(Oj.dump(converted_values))
-    end
+    values = raw_values
+    converted_values = calculate_ratios(*values)
+    return converted_values
   end
+
 end

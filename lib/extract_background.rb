@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'oj'
+# require 'oj'
 
 class ExtractVoice
   PIXEL_PER_SECOND = 1000 / 30.0
